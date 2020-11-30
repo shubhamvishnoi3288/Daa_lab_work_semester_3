@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include<conio.h>
+int main()
+{
+int a[100], n,i,count=0,item;
+printf("Enterthesizeofarray=\n");
+scanf("%d",&n);
+printf("Enterthenumbersinarray=\n");
+for(i=0;i<n;i++)
+{
+scanf("%d",&a[i]);
+}
+printf("Theelementsinarrayare:\n");
+for(i=0;i<n;i++)
+{
+printf("%d",a[i]);
+}
+printf("Enter the no. to be searched \n");
+scanf("%d",&item);
+count++;
+for(i=0;i<n;i++)
+{
+count++;
+if(a[i]==item)
+{
+count++;
+printf("\nNumberfoundat position%d\n",i);
+count++;
+break;
+}
+count++;
+}
+if(i==n)
+{
+printf("number not found");
+}
+printf("Count=%d",count);
+}
