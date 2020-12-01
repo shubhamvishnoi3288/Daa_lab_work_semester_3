@@ -1,0 +1,90 @@
+#include<stdio.h>
+int count = 0;
+void printArray(int *arr,int num)
+{
+ int i;
+ printf("\nArray is :\n");
+ for(i=0; i<=(num-1); i++)
+ printf("%d\t",*(arr+i));
+}
+void mergeArray(int *a,int lb,int lr,int rb,int rr)
+{
+ int na,nb,nc,k,*c ;
+ na = lb;
+ nb = rb;
+ nc = lb;
+ c = (int*)malloc(sizeof(int));
+ c =(int*)realloc(c,(lb+rr)*sizeof(int));
+ count++;
+ while((na <= lr) && (nb <=rr))
+ {
+ count++;
+ if(a[na]< a[nb]){
+ count++;
+ c[nc] = a[na++];
+ count++;
+ }
+ else{count++;
+ c[nc] = a[nb++];
+ count++;
+ }
+ nc++;
+ }
+ if(na > lr)
+ {
+ count++;
+ while(nb <= rr)
+ c[nc++] = a[nb++];
+ count++;
+ }
+ else
+ {
+ count++;
+ while(na <= lr)
+ c[nc++] = a[na++
+count++;
+ }
+ for(k = lb; k<=rr; k++)
+ {
+ count++;
+ a[k] = c[k];
+ count++;
+ }
+ count++;
+}
+void mergeSort(int *arr,int beg,int end)
+{
+ int mid;
+ count++;
+ if(beg < end)
+ {
+ count++;
+ mid = ((beg+end)/2) ;
+ count++;
+ mergeSort(arr,beg,mid);
+ count++;
+ mergeSort(arr,mid+1,end);
+ count++;
+ mergeArray(arr,beg,mid,mid+1,end); // calling the function
+to merge the elements
+ count++;
+ }
+ count++;
+}
+void main()
+{
+ int num,*arr, i;
+ arr = (int *)malloc(sizeof(int));
+ printf("\nEnter the number of elements for Sorting : \n");
+ scanf("%d",&num);
+ arr = (int *)realloc(arr ,num*sizeof(int));
+ printf("\nEnter the elements of array :\n");
+ for(i =0; i<=(num-1); i++)
+ scanf("%d",arr+i);
+ printArray(arr,num);
+ printf("\nSORTING THE ARRAY\n");
+ mergeSort(arr,0,num-1); // calling merge sort
+ printArray(arr,num);
+ printf("\n%d\n",count);
+ getchar();
+}
