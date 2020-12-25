@@ -1,4 +1,4 @@
-              //Algorithm:
+               //Algorithm for bainay_search:
     int binarySearch(int[] A, int x)
 {
     int low = 0, high = A.length - 1;
