@@ -27,7 +27,7 @@
       count++;
    }
      }
-      int main()
+       int main()
       {
      int n = 0;
      char A='A',B='B',C='C';
